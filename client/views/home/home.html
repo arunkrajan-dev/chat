@@ -1,0 +1,24 @@
+<template name="home">
+    {{#if currentUser}}
+        {{> createChat}}
+        <h4>Chat List:</h4>
+        <ul>
+        {{#each chats}}
+            <li><a href="/chat/{{_id}}">{{title}}</a></li>
+        {{/each}}
+        </ul>
+        <a href="#" id="logout">Logout</a>
+    {{else}}
+        {{> loginButtons}}
+    {{/if}}
+</template>
+
+<template name="createChat">
+    <form>
+        <lable for="title">
+            Title
+        </lable>
+        <input id="title" name="title" value="" type="text" planceholder="Chat Title">
+        <button type="submit">Create</button>
+    </form>
+</template>

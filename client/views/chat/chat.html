@@ -1,0 +1,39 @@
+<template name="chat">
+    {{#with chats}}
+    <h4>Chat - {{title}}</h4>
+    <ul>
+        {{#each chats.users}}
+            <li>{{name}}</li>
+        {{/each}}
+    </ul>
+    {{/with}}
+    
+    {{> addUser}}
+    <h4>Messages:</h4>
+    
+    <ul>
+        {{#each msgs}}
+            <li>
+                [{{user}} - {{modifiedAt}}]
+                &nbsp;{{msg}}            
+            </li>
+        {{/each}}
+    </ul>
+    {{> sendMsg}}
+</template>
+
+<template name="sendMsg">
+    <form>
+        <lable for="msg">Message</lable>
+        <input type="textarea" name="msg" id="msg" placeholder="Type your message here">
+        <button type="submit">Send</button>
+    </form>
+</template>
+
+<template name="addUser">
+    <form>
+        <lable for="user">User</lable>
+        <input type="text" name="user" id="user" placeholder="add user">
+        <button type="submit">Add</button>
+    </form>
+</template>
